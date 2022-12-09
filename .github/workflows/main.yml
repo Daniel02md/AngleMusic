@@ -13,4 +13,4 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
-        script: cd ~/AngleMusic && git pull origin main
+        script: cd ~/AngleMusic && gh repo sync
