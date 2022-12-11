@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Music Player</title>
-    <link rel="stylesheet" href="./CSS/styles.css" />
+    <link rel="stylesheet" href="static/CSS/styles.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     
@@ -18,7 +18,7 @@
           <div class="search">
             <input type="search" id="searchBox" placeholder="Pesquisar" style="font-size: 18px" onclick="">
             <button type="button" class="searchBtn" onclick="searchResults(document.getElementById('searchBox').value)">
-              <img id="imgSearchBtn" src="./images/Magnifying_glass_icon.svg.png" alt="Botão de pesquisar">
+              <img id="imgSearchBtn" src="static/images/Magnifying_glass_icon.svg.png" alt="Botão de pesquisar">
             </button>
           </div>
 
@@ -31,7 +31,7 @@
           </div>
         </div>
 
-        <img src="./images/logo_angleMusic.png" class="headphones" id="headphones"/>
+        <img src="static/images/logo_angleMusic.png" class="headphones" id="headphones"/>
 
         <audio id="player" ontimeupdate="updateProgress()" src=""></audio>
 
@@ -61,6 +61,6 @@
         </div>
     </div>
 
-    <script src="./JS/script.js"></script>
+    <script src="static/JS/script.js"></script>
   </body>
 </html>
