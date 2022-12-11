@@ -1,0 +1,151 @@
+html {
+  font-size: 10px;
+  font-family:Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+}
+
+body {
+  background: linear-gradient(#150139, #000717);
+  min-height: 100vh;
+  color: whitesmoke;
+  font-size: 1.4rem;
+  margin: 2rem auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.player {
+  background: radial-gradient(#010e2e, #170228);
+  padding: 2rem;
+  border-radius: 2rem;
+  box-shadow: 5px 5px 6px black;
+}
+
+.searchBackground{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.search{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 2vh;
+}
+
+#searchBox{
+  width: 30vw;
+  height:5vh;
+  color: white;
+  outline: #4a4a4a;
+  background-color:#2b2b2b;
+  border: none;
+  border-top-left-radius: 3vw;
+  border-bottom-left-radius: 3vw;
+  border-left: solid 2vw #2b2b2b;
+  justify-content: center;
+}
+
+#searchBox::-webkit-input-placeholder{
+  font-size: 18px;
+}
+
+.searchBtn{
+  font-size: 30%;
+  border: none;
+  border-top-right-radius: 3vw;
+  border-bottom-right-radius: 3vw;
+  background-color: #353535;
+  height: 5vh;
+  cursor: pointer;
+}
+
+.searchBtn:hover{
+  background-color: #171717;
+}
+
+#imgSearchBtn{
+  padding-left: 0.5vw;
+  padding-right: 0.5vw;
+
+  width: 5em;
+  height: 70%;
+}
+
+.searchBackground .viewOptions{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  justify-items: center;
+  justify-self: center;
+}
+
+.options{
+ background-color: #1a1a1a;
+ border-radius: 2em;
+}
+
+#headphones{
+  justify-content: center;
+  width: 50%;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+#controls {
+  border: 1px lightslategray solid;
+  border-radius: 1rem;
+  padding: 1.6rem;
+}
+
+.controls_wrapper > span {
+  cursor: pointer;
+  color: lightslategray;
+  font-size: 6rem;
+  padding: 2rem;
+}
+
+#currentSong {
+  overflow: hidden;
+}
+
+#songList {
+  overflow: hidden;
+  text-align: left;
+}
+
+li {
+  cursor: pointer;
+  padding: 1.5rem;
+}
+
+li:hover {
+  background: #f3644b;
+}
+
+progress {
+  width: 100%;
+  height: 3rem;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: whitesmoke;
+}
+
+@media (min-width: 800px) {
+  body {
+    max-width: 60vw;
+    font-size: 1.8rem;
+  }
+}
+
+
+
+.pulse {
+  animation-name: pulse;
+  animation-duration: 0.4s;
+}
