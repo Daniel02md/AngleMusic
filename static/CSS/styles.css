@@ -122,7 +122,6 @@ body {
 #progress-bar .currentTime{
   display: flex;
   justify-content: end;
-
   width: 0%;
   background-color: rgb(54, 17, 189);
   height: 100%;

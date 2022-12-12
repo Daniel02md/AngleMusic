@@ -18,12 +18,14 @@ progressBar.addEventListener(
 )
 
 function timeSlider(event){
+    const duration =  Number(document.getElementById('durationTag').innerHTML)
     const PGBar = event.target.getBoundingClientRect()
     const left = PGBar.x - window.scrollX
     const width = PGBar.width
     const currentTimePosition = event.clientX - left
     const player = document.getElementById('player')
-    player.currentTime = (player.duration * currentTimePosition) / width
+    
+    player.currentTime = (duration * currentTimePosition) / width
     setPBTime(currentTimePosition)
 
     
@@ -39,13 +41,16 @@ async function setPBTime(timeToSet){
 
 
 async function setSong(result){
+
+  
   const title = result.getElementsByClassName("song-name")[0].innerText
   const channel = result.getElementsByClassName("singer")[0].innerText
   const thumb = result.getElementsByClassName("imgThumb")[0].getAttribute('src')
   const duration = result.getElementsByClassName("song-duration")[0].innerHTML
-
+  
   document.getElementById("headphones").setAttribute('src', `${thumb}`)
-  document.getElementById("currentSong").innerText = `Now Playing:  ${title}`;
+  document.getElementById("currentSong").innerText = `Now Playing:  ${title}`
+  document.getElementById("durationTag").innerHTML = result.getElementsByClassName('duration')[0].innerHTML
   document.getElementById("singerTag").innerHTML = `Canal ${channel}`
 
   const ytUrl = result.getElementsByClassName("song-url")[0].innerText
@@ -115,13 +120,14 @@ slider.oninput = function (e) {
 
 
 function updateProgress() {
-  if (player.currentTime > 0) {
+    const player = document.getElementById('player')
     const currentTimeBar = document.getElementById('progress-bar').getBoundingClientRect().width
-    const timeToSet = currentTimeBar * player.currentTime / player.duration
+    const duration =  Number(document.getElementById('durationTag').innerHTML)
+    const timeToSet = (currentTimeBar * player.currentTime) / duration
     setPBTime(timeToSet)
     setTimer()
     
-  }
+  
 }
 function setTimer(){
   const timer = document.getElementById('timer')
@@ -148,11 +154,14 @@ async function search(query, maxResults = 10){
 
 
 async function addResultsOnBody(title, channel, duration, thumb, url){
+  const date = new Date(0)
+  date.setSeconds(Number(duration))
   const result = `<div id="result1" class="result" onclick="setSong(this)">
                   <img class="imgThumb" src="${thumb.url}"/>
                   <h3 class="song-name">${title}</h3>
                   <p class="singer">${channel}</p>. 
-                  <p class="song-duration">${duration}</p>
+                  <p class="song-duration">${date.toISOString().substring(11, 19)}</p>
+                  <span hidden class="duration">${duration}</span>
                   <span hidden id="song-url" class="song-url">${url}</span>
                   </div>`
                 
