@@ -1,3 +1,43 @@
+let progressBar = document.getElementById('progress-bar')
+
+progressBar.addEventListener(
+    'mousedown', 
+    (event) => progressBar.addEventListener("mousemove", timeSlider, event))
+
+progressBar.addEventListener(
+    'mouseup', 
+    (event) => progressBar.removeEventListener("mousemove", timeSlider, event))
+
+progressBar.addEventListener(
+    "mouseleave", 
+    (event) => progressBar.removeEventListener("mousemove", timeSlider, event))
+
+progressBar.addEventListener(
+    "click",
+    (event) => timeSlider(event)
+)
+
+function timeSlider(event){
+    const PGBar = event.target.getBoundingClientRect()
+    const left = PGBar.x - window.scrollX
+    const width = PGBar.width
+    const currentTimePosition = event.clientX - left
+    const player = document.getElementById('player')
+    player.currentTime = (player.duration * currentTimePosition) / width
+    setPBTime(currentTimePosition)
+
+    
+}
+
+async function setPBTime(timeToSet){
+    const PGBar = document.getElementById('progress-bar')
+    const currentTimeBar = PGBar.getElementsByClassName('currentTime')[0]
+    currentTimeBar.style.width = `${timeToSet}px`
+}
+
+
+
+
 async function setSong(result){
   const title = result.getElementsByClassName("song-name")[0].innerText
   const channel = result.getElementsByClassName("singer")[0].innerText
@@ -6,7 +46,6 @@ async function setSong(result){
 
   document.getElementById("headphones").setAttribute('src', `${thumb}`)
   document.getElementById("currentSong").innerText = `Now Playing:  ${title}`;
-  document.getElementById("durationTag").innerHTML = duration
   document.getElementById("singerTag").innerHTML = `Canal ${channel}`
 
   const ytUrl = result.getElementsByClassName("song-url")[0].innerText
@@ -16,7 +55,7 @@ async function setSong(result){
 
   const box = document.getElementsByClassName("results")[0]
   $(box).hide()
-
+  setPBTime(0)
 }
 
 
@@ -71,15 +110,25 @@ slider.oninput = function (e) {
 
 
 
+
 function updateProgress() {
   if (player.currentTime > 0) {
-    const progressBar = document.getElementById("progress");
-    progressBar.value = (player.currentTime / player.duration) * 100;
+    const currentTimeBar = document.getElementById('progress-bar').getBoundingClientRect().width
+    const timeToSet = currentTimeBar * player.currentTime / player.duration
+    setPBTime(timeToSet)
+    setTimer()
+    
   }
 }
+function setTimer(){
+  const timer = document.getElementById('timer')
+  const date = new Date(0)
+  const player = document.getElementById('player')
+  date.setSeconds(player.currentTime)
+  timeToString = date.toISOString().substring(11, 19);
+  timer.innerHTML = timeToString
 
-
-
+}
 
 
 async function search(query, maxResults = 10){
@@ -127,4 +176,9 @@ async function searchResults(q){
 
   const box = document.getElementsByClassName("results")[0]
   $(box).show()
+}
+
+
+const delay = (delayInms) => {
+  return new Promise(resolve => setTimeout(resolve, delayInms));
 }

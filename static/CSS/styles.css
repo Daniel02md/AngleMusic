@@ -14,7 +14,9 @@ body {
   text-align: center;
 }
 
+
 .player {
+  
   background: radial-gradient(#010e2e, #170228);
   padding: 2rem;
   border-radius: 2rem;
@@ -92,8 +94,40 @@ body {
   justify-content: center;
   width: 50%;
   margin-top: 1em;
-  margin-bottom: 2em;
+  
 }
+.bar{
+  display: flex;
+  position: relative;
+  height: 4em;
+
+}
+.bar #timer{
+  position: absolute;
+  bottom: 3em;
+}
+.bar #progress-bar{
+  transition: height 50ms;
+  align-self: center;  
+  display: flex;
+  background-color: silver;
+
+  width: 100%;
+  height: 1.6rem;
+}
+#progress-bar:hover{
+  height: 2rem;
+}
+
+#progress-bar .currentTime{
+  display: flex;
+  justify-content: end;
+
+  width: 0%;
+  background-color: red;
+  height: 100%;
+}
+
 
 #controls {
   border: 1px lightslategray solid;

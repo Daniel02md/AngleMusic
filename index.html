@@ -33,12 +33,15 @@
 
         <img src="static/images/logo_angleMusic.png" class="headphones" id="headphones"/>
 
-        <audio id="player" ontimeupdate="updateProgress()" src=""></audio>
-
-        <progress id="progress" value="0" max="100"></progress>
-
+        <audio id="player" ontimeupdate="delay(1000);updateProgress()" src=""></audio>
+        <div class="bar">
+          <div id="timer">00:00:00</div>
+          <div id="progress-bar">
+            <div class="currentTime">
+            </div>
+          </div>
+        </div>
         <div class="information">
-          <h4 id="durationTag"></h4>
           <h1 id="singerTag"></h1>
         </div>
 
