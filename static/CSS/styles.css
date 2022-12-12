@@ -124,7 +124,7 @@ body {
   justify-content: end;
 
   width: 0%;
-  background-color: red;
+  background-color: rgb(54, 17, 189);
   height: 100%;
 }
 
@@ -166,7 +166,9 @@ progress {
   margin-bottom: 1rem;
 }
 
-a {
+#controls a{
+  position: relative;
+  top: 1em;
   color: whitesmoke;
 }
 

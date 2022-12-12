@@ -49,6 +49,9 @@ async function setSong(result){
   document.getElementById("singerTag").innerHTML = `Canal ${channel}`
 
   const ytUrl = result.getElementsByClassName("song-url")[0].innerText
+  const origin = document.getElementById('origin')
+  origin.setAttribute('href', ytUrl)
+  origin.innerHTML = 'Música original'
   const directLinkConst = await directLink(ytUrl)
 
   const source = document.getElementById("player").setAttribute('src', `${directLinkConst}`)
