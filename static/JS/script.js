@@ -121,9 +121,10 @@ slider.oninput = function (e) {
 
 function updateProgress() {
     const player = document.getElementById('player')
-    const currentTimeBar = document.getElementById('progress-bar').getBoundingClientRect().width
+    const PGbar = document.getElementById('progress-bar')
+    const currentTimeBar = PGbar.getElementsByClassName('currentTime')[0].getBoundingClientRect().width
     const duration =  Number(document.getElementById('durationTag').innerHTML)
-    const timeToSet = (currentTimeBar * player.currentTime) / duration
+    const timeToSet = (player.currentTime * PGbar.getBoundingClientRect().width) / duration
     setPBTime(timeToSet)
     setTimer()
     
