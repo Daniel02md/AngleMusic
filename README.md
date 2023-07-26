@@ -7,7 +7,7 @@
 <img src="anglemusicusando.jpg">
 
 <h2>Features</h2>
-<h56>O usuário pode através da nossa aplicação pesquisar e reproduzir qualque música que queira, podendo ainda, controlar a barra de progresso da mesmo.</h5>
+<h56>O usuário pode através da nossa aplicação pesquisar e reproduzir qualquer música que queira, podendo ainda, controlar a barra de progresso da mesma.</h5>
 
 <h2>Tecnologias</h2>
 <h5>Para listar as tecnologias podemos dividí-las em duas partes do desenvolvimento:</h5>
